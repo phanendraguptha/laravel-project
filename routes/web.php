@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'routeHandler@index');
 Route::get('/about', 'routeHandler@about');
 Route::get('/contactus', 'routeHandler@contact');
-Route::get('/signin', 'routeHandler@login');
-Route::get('/signup', 'routeHandler@signup');
+// Route::get('/signin', 'routeHandler@login');
+// Route::get('/signup', 'routeHandler@signup');
 Route::get('/weekend', 'routeHandler@weekend');
 Route::get('/book', 'routeHandler@book');
 
@@ -35,3 +35,7 @@ Route::get('/weekend/mysore', 'weekendHandler@mysore');
 Route::get('/weekend/madurai', 'weekendHandler@madurai');
 Route::get('/weekend/rameshwaram', 'weekendHandler@rameshwaram');
 Route::get('/weekend/tirupati', 'weekendHandler@tirupati');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

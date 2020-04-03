@@ -11,7 +11,7 @@ use App\contact;
 class routeHandler extends Controller
 {
     public function index(){
-        return view('home');
+        return view('index');
     }
     public function about(){
         return view('about');
@@ -19,12 +19,12 @@ class routeHandler extends Controller
     public function contact(){
         return view('contact');
     }
-    public function login(){
-        return view('login');
-    }
-    public function signup(){
-        return view('signup');
-    }
+    // public function login(){
+    //     return view('login');
+    // }
+    // public function signup(){
+    //     return view('signup');
+    // }
     public function weekend(){
         return view('weekend');
     }

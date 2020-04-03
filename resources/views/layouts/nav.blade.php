@@ -6,6 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">  <!--ml-auto is for align the nav items right-->
+      @guest
         <li class="nav-item">
           <a class="nav-link" href="/">Home</span></a>
         </li>
@@ -16,14 +17,41 @@
           <a class="nav-link" href="/contactus">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signin">Login</a>
+          <a class="nav-link" href="/weekend">Weekend Plans</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signup">SignUp</a>
+          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/weekend">Weekend Plans</a>
+        @if (Route::has('register'))
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
+        @endif
+        @else
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contactus">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/weekend">Weekend Plans</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                  Logout
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+        </li>
+        @endguest
       </ul>
     </div>
   </nav>
